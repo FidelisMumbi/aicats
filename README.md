@@ -20,7 +20,7 @@ pip install -r requirements.txt
 #run the server using 
 python manage.py runserver
 
-#server will provide a link to which intexraction will be possible
+#server will provide a link to which interaction will be possible
 
 #Replace propela.txt file other business file with business infomation and instructions
 #ai model transformer can be used if machine specs are good in order to produce awesome output
