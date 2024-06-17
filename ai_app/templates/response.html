@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ organization_name }} Enquiry Service</title>
+    <!--<link rel="stylesheet" href="./script.css">-->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    width: 150px;
+    height: auto;
+    margin-right: 10px;
+}
+
+main {
+    padding-bottom: 50px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 5px;
+}
+
+.response {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #f5f5f5;
+    padding: 20px 0;
+    text-align: center;  /* Center footer content */
+}
+
+.social-links {
+    list-style: none;   /* Remove default list styling */
+    padding: 0;
+    margin: 0 auto;    /* Center social links horizontally */
+}
+
+.social-links li {
+    display: inline-block; /* Display social links side-by-side */
+    margin: 0 10px;        /* Add spacing between links */
+}
+
+.social-links li a {
+    color: inherit;        /* Inherit text color from footer */
+    text-decoration: none; /* Remove default underline */
+}
+
+.social-links li a:hover {
+    color: #007bff;       /* Change color on hover */
+}
+
+i {  /* Font Awesome icon styles (adjust based on your setup) */
+    font-size: 20px;
+}
+h1 img{
+    border-radius: 50%;
+    transform: scale(0.7);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><img src="data:image/png;base64,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" alt="{{ organization_name }} Logo"><br> {{ organization_name }}  Deraj customer service</h1>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <p>We're here to assist you with any questions you may have. Your enquiries are important to us, and we'll do our best to provide helpful and informative responses.</p>
+            <form id="enquiry-form" method="post" novalidate>
+                <label for="enquiry">Your Enquiry:</label><br>
+                <textarea id="enquiry" name="enquiry" rows="5" cols="30" placeholder="Enter your question here..." required></textarea><br>
+                <button type="submit">Submit Enquiry</button>
+                <div class="error-message"></div>
+            </form>
+            {% if response %}
+            <div class="response">
+                <h2>Deraj_Ai response</h2>
+                <p>{{ response }}</p>x
+            </div>
+            {% endif %}
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; {{ organization_name }} {{ year }}</p>
+        </div>
+    </footer>
+    <script>
+        function send_json(datas,urlp){
+    fetch(urlp,{
+        method:"POST",
+        //headers:{'Content-Type':'application/json'},
+        body:JSON.stringify(datas)
+    })
+    .then(response => response.json())
+    .then(data =>{
+        //console.log('server_response',data);
+        //alert(`received json:${JSON.stringify(data)}`)
+        if (data && data.redirect){
+            if(data.info == 'verified'){
+                export_data('./index.html',data.user_id)
+            }
+            if(data.info == 'order_made'){
+                alert(data)
+                alert('Order has been made, successfully')
+                window.location.href='./index.html'
+            }
+        }
+    })
+    .catch(error =>{
+        alert('no connection..')
+        console.log('error',error)
+    });
+  
+  }
+    </script>
+    <!--<script src="./script.js"></script>-->
+</body>
+</html>
