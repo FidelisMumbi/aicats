@@ -8,11 +8,14 @@ this presents possible ellimination of human customer service for small bussines
 i believe the with proper customization it can be the best customer services 
 as the responses can be used to also automate actual computing work through filtratiion and strict response
 
-the project is based on a virtual environment so if in use please activate
+the project is based on a virtual environment so if in use please  create and activate
 when in path
-/ai_cat
+
+python -m venv venv
 
 source venv/bin/activate
+
+pip install -r requirements.txt
 
 #run the server using 
 python manage.py runserver
